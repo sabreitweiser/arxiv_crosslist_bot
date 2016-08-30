@@ -10,8 +10,6 @@ with it, but please play nice with the arXiv API!
 
 base_cat = "quant-ph"
 cross_cats = {"cond-mat.str-el", "cond-mat.mes-hall"}
-email = "foo@bar.com"
-password = "f00bar!"
 
 import urllib.request, urllib.parse, urllib.error
 import feedparser
@@ -101,14 +99,18 @@ for entry in feed.entries:
     # The abstract is in the <summary> element
     body += '<p>%s</p>' %  entry.summary
     body += '</br>'
+print(body)
 
+
+'''
+email = "foo@bar.com"
+password = "f00bar!"
 msg = MIMEMultipart()
 msg['Subject'] = title
 msg['From'] = email
 msg['To'] = email
 msg.attach(MIMEText(body, 'html'))
-print(msg.as_string())
-'''
+
 smtp_host = 'smtp.gmail.com'
 smtp_port = 587
 server = smtplib.SMTP()
