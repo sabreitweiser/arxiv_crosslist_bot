@@ -62,7 +62,7 @@ for entry in feed.entries:
     if not any(cat in cross_cats for cat in all_categories):
         continue
     arxiv_id = entry.id.split('/abs/')[-1]
-    if arxiv_id[-1] != '1':
+    if arxiv_id[-2:] != 'v1':
         continue
     pdf_link = ''
     for link in entry.links:
